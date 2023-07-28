@@ -6,7 +6,7 @@ public class MotherShip : MonoBehaviour
 {
     public int scoreValue;
     private const float MAX_LEFT = -5;
-    private float speed = 5;
+    private float speed = 3;
 
     // Update is called once per frame
     void Update()
@@ -19,8 +19,14 @@ public class MotherShip : MonoBehaviour
         }
     }
 
-      private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("FriendlyBullet"))
+        {
+            UIManager.UpdateScore(scoreValue);
+            collision.gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
         
     }
     

@@ -43,6 +43,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8055328080086180884}
   - component: {fileID: 8055328080086180885}
+  - component: {fileID: 6309173740804135233}
+  - component: {fileID: 989466015803781751}
   m_Layer: 0
   m_Name: Armor_Right_01
   m_TagString: Untagged
@@ -117,6 +119,49 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &6309173740804135233
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055328080086180886}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09473148, y: -0.12883472}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81053704, y: 0.74233055}
+  m_EdgeRadius: 0
+--- !u!114 &989466015803781751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055328080086180886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4754efcf7e72cdb4fa8a113d6719860f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  states:
+  - {fileID: -347614018, guid: 33ea59f4967c44b0aa3aa1edfd88c910, type: 3}
+  - {fileID: 1427097870, guid: 33ea59f4967c44b0aa3aa1edfd88c910, type: 3}
+  - {fileID: 1892578059, guid: 33ea59f4967c44b0aa3aa1edfd88c910, type: 3}
+  - {fileID: -199513861, guid: 33ea59f4967c44b0aa3aa1edfd88c910, type: 3}
 --- !u!1 &8055328080261567908
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +172,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8055328080261567906}
   - component: {fileID: 8055328080261567907}
+  - component: {fileID: 5059709788307385635}
+  - component: {fileID: 4251815181878256805}
   m_Layer: 0
   m_Name: Armor_Left_01
   m_TagString: Untagged
@@ -201,3 +248,46 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &5059709788307385635
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055328080261567908}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.09283686, y: -0.12883472}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8143263, y: 0.74233055}
+  m_EdgeRadius: 0
+--- !u!114 &4251815181878256805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055328080261567908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4754efcf7e72cdb4fa8a113d6719860f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  states:
+  - {fileID: 2022768383, guid: 33ea59f4967c44b0aa3aa1edfd88c910, type: 3}
+  - {fileID: -583960654, guid: 33ea59f4967c44b0aa3aa1edfd88c910, type: 3}
+  - {fileID: -1476441949, guid: 33ea59f4967c44b0aa3aa1edfd88c910, type: 3}
+  - {fileID: 1440095667, guid: 33ea59f4967c44b0aa3aa1edfd88c910, type: 3}

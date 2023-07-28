@@ -20,10 +20,10 @@ public class AlienMaster : MonoBehaviour
     private float shootTimer = 3f;
     private const float ShootTime = 3f;
     public GameObject motherShipPrefab;
-    private Vector3 motherShipSpawnPos = new Vector3(3.72f, 3.45f, 0);
+    private Vector3 motherShipSpawnPos = new Vector3(3.72f, 5.5f, 0);
     private float motherShipTimer = 6f;
     private const float MOTHERSHIP_MIN = 15f;
-    private const float MOTHERSHIP_MAX = 60f;
+    private const float MOTHERSHIP_MAX = 30f;
 
 
     // Start is called before the first frame update
