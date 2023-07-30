@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PickupCoin : Pickup
 {
-   public override void PickMeUp()
-    {
-        Inventory.currentCoins++;
-        UIManager.UpdateCoins();
-        gameObject.SetActive(false);
-        
-    }
+	public override void PickMeUp()
+	{
+		Inventory.currentCoins++;
+		UIManager.UpdateCoins();
+		gameObject.SetActive(false);
+	}
 }

@@ -273,8 +273,8 @@ MonoBehaviour:
   - {fileID: 4305320922565951831, guid: d7a052fa6b71d4ea4b5672a24d5329c1, type: 3}
   - {fileID: 3607968094451778776, guid: cfbdb6f22378643dda8be22b7cfd454b, type: 3}
   - {fileID: 4556936840486204632, guid: a3bdc9d2c1d5e461d9612ffcb6739282, type: 3}
-  - {fileID: 7728873211649548533, guid: f7354f7bc7434442890ba23e4f5fc9ad, type: 3}
   - {fileID: 3663874431041218753, guid: 3b4456354714343df9ddd60e183304a7, type: 3}
+  - {fileID: 7728873211649548533, guid: f7354f7bc7434442890ba23e4f5fc9ad, type: 3}
 --- !u!1 &192665787
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &201682852
 Transform:
   m_ObjectHideFlags: 0

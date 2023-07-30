@@ -25,7 +25,7 @@ public class AlienMaster : MonoBehaviour
 	private const float MAX_MOVE_SPEED = 0.02f;
 	private bool entering = true;
 
-    void Start()
+    public void Start()
     {
         foreach(GameObject go in GameObject.FindGameObjectsWithTag("Alien"))
 		{

@@ -4,45 +4,48 @@ using UnityEngine;
 
 public class Alien : MonoBehaviour
 {
-    
-public int scoreValue;
-public GameObject explosion;
-public GameObject coinPrefab;
-public GameObject lifePrefab;
-public GameObject healthPrefab;
+    public int scoreValue;
+    public GameObject explosion;
+      public GameObject coinPrefab;
 
-private const int LIFE_CHANCE = 3;
-private const int HEALTH_CHANCE = 25;
-private const int COIN_CHANCE = 100;
+    public GameObject lifePrefab;
+    public GameObject healthPrefab;
 
-public void Kill()
-{
-    UIManager.UpdateScore(scoreValue);
-    AlienMaster.allAliens.Remove(gameObject);
-    Instantiate(explosion, transform.position, Quaternion.identity);
+    private const int LIFE_CHANCE = 1;
+    private const int HEALTH_CHANCE = 10;
+    private const int COIN_CHANCE = 50;
 
-    int ran = Random.Range(0, 1000);
-    if (ran <= LIFE_CHANCE)
-    {
-        Instantiate(lifePrefab, transform.position, Quaternion.identity);
-    }
-    else if (ran <= HEALTH_CHANCE)
-    {
-        Instantiate(healthPrefab, transform.position, Quaternion.identity);
-    }
-    else if (ran <= COIN_CHANCE)
-    {
-        Instantiate(coinPrefab, transform.position, Quaternion.identity);
-    }
+    public void Kill()
+	{
+        UIManager.UpdateScore(scoreValue);
+        AlienMaster.allAliens.Remove(gameObject);
+        Instantiate(explosion, transform.position, Quaternion.identity);
 
-    if(AlienMaster.allAliens.Count == 0)
-    {
-        GameManager.SpawnNewWave();
-    }
-    gameObject.SetActive(false);
+        int ran = Random.Range(0, 300);
+            Debug.Log(ran);
+            //ran = 40
+		if (ran <= LIFE_CHANCE)
+		{
+            Debug.Log("Life");
+            Instantiate(lifePrefab, transform.position, Quaternion.identity);
+		}
+		else if (ran <= HEALTH_CHANCE)
+		{
+            Debug.Log("Health");
+            Instantiate(healthPrefab, transform.position, Quaternion.identity);
+		}
+		else if (ran <= COIN_CHANCE)
+		{
+            Debug.Log("Coin");
+            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+		}
 
-}
+		if (AlienMaster.allAliens.Count == 0)
+		{
+            GameManager.SpawnNewWave();
+		}
 
-
+        gameObject.SetActive(false);
+	}
 
 }

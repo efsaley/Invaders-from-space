@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -131,7 +132,10 @@ public class Player : MonoBehaviour
 			UIManager.UpdateLives(shipStats.currentLifes);
 			if (shipStats.currentLifes <= 0)
 			{
-				Debug.Log("Game Over");
+				//Debug.Log("Game Over");
+				AlienMaster.allAliens.Clear();
+				SceneManager.LoadScene("RestartScene");
+
 			}
 			else
 			{
