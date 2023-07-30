@@ -11,7 +11,7 @@ public GameObject coinPrefab;
 public GameObject lifePrefab;
 public GameObject healthPrefab;
 
-private const int LIFE_CHANCE = 5;
+private const int LIFE_CHANCE = 3;
 private const int HEALTH_CHANCE = 25;
 private const int COIN_CHANCE = 100;
 
