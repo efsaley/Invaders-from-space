@@ -1,45 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-   public GameObject[] allAlienSets;
-   private GameObject currentSet;
-   private Vector2 spawnPos = new Vector2(0, 10);
+    public GameObject[] allAlienSets;
+    private GameObject currentSet;
+    private Vector2 spawnPos = new Vector2(0, 10);
 
-   public static GameManager instance;
+    public static GameManager instance;
 
-   private void Awake()
-   {
-    if (instance == null)
+    public static bool gameOver;
+
+    public GameObject gameOverPanel;
+
+    private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            //DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-    else
+
+    private void Start()
     {
-        Destroy(gameObject);
+        gameOver = false;
+        SpawnNewWave();
     }
-   }
-
- private void Start()
-  {
-    SpawnNewWave();
-  }
-
-   public static void SpawnNewWave()
-   {
-    instance.StartCoroutine(instance.SpawnWave());
-   }
-
-   private IEnumerator SpawnWave()
-   {
-    if (currentSet != null)
+    public static void SpawnNewWave()
     {
-        Destroy(currentSet);
+        instance.StartCoroutine(instance.SpawnWave());
     }
-    yield return new WaitForSeconds(3);
-    currentSet = Instantiate(allAlienSets[Random.Range(0, allAlienSets.Length)], spawnPos, Quaternion.identity);
-    UIManager.UpdateWave();
-   }
+
+    private IEnumerator SpawnWave()
+    {
+        if (currentSet != null)
+        {
+            Destroy(currentSet);
+        }
+        yield return new WaitForSeconds(3);
+        currentSet = Instantiate(allAlienSets[Random.Range(0, allAlienSets.Length)], spawnPos, Quaternion.identity);
+        UIManager.UpdateWave();
+    }
+
+    public void GameOver()
+    {
+        gameOver = true;
+        gameOverPanel.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

@@ -20,7 +20,12 @@ public class UIManager : MonoBehaviour
 	public Sprite[] healthBars;
 	private Color32 active = new Color(1, 1, 1, 1);
 	private Color32 inactive = new Color(1, 1, 1, 0.25f);
+	private const string scoreKey = "score";
+    public const string highscoreKey = "HighScore";
+    private const string coinsKey = "Coins";
+    private const string waveKey = "Wave";
 
+	
 	private void Awake()
 	{
 		if (instance == null)
@@ -31,7 +36,11 @@ public class UIManager : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		highscore = PlayerPrefs.GetInt("HighScore");
+        instance.highscoreText.text = instance.highscore.ToString("000,000");
 	}
+
+
 
 	public static void UpdateLives (int l)
 	{
@@ -47,16 +56,20 @@ public class UIManager : MonoBehaviour
 	public static void UpdateHealthBar (int h)
 	{
 		instance.healthBar.sprite = instance.healthBars[h];
+		
 	}
+	
 	public static void UpdateScore(int s)
-	{
-		instance.score += s;
-		instance.scoreText.text = instance.score.ToString("000,000");
-	}
-	public static void UpdateHighScore()
-	{
-		// TODO
-	}
+    {
+        instance.score += s;
+        instance.scoreText.text = instance.score.ToString("000,000");
+        if (instance.score > instance.highscore)
+        {
+            instance.highscore = instance.score;
+            instance.highscoreText.text = instance.highscore.ToString("000,000");
+            PlayerPrefs.SetInt("HighScore", instance.highscore);
+        }
+    }
 	public static void UpdateWave()
 	{
 		instance.wave++;
@@ -65,6 +78,7 @@ public class UIManager : MonoBehaviour
 	public static void UpdateCoins()
 	{
 		instance.coinsText.text = Inventory.currentCoins.ToString();
+		PlayerPrefs.Save();
 	}
 
 }
