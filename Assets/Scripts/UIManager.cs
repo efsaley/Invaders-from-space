@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
 	public Sprite[] healthBars;
 	private Color32 active = new Color(1, 1, 1, 1);
 	private Color32 inactive = new Color(1, 1, 1, 0.25f);
-	private const string scoreKey = "score";
+	public const string scoreKey = "score";
     public const string highscoreKey = "HighScore";
     private const string coinsKey = "Coins";
     private const string waveKey = "Wave";
@@ -79,6 +79,10 @@ public class UIManager : MonoBehaviour
 	{
 		instance.coinsText.text = Inventory.currentCoins.ToString();
 		PlayerPrefs.Save();
+	}
+
+	public static int getScore() {
+		return instance.score;
 	}
 
 }
