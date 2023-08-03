@@ -33,38 +33,41 @@ public class AlienMaster : MonoBehaviour
 		}
     }
 
-    void Update()
+      void Update()
     {
-		if (entering)
-		{
-			transform.Translate(Vector2.down * Time.deltaTime * 10);
+        if (entering)
+        {
+            transform.Translate(Vector2.down * Time.deltaTime * 10);
 
-			if (transform.position.y <= START_Y)
-			{
-				entering = false;
-			}
-		}
-		else
-		{
-			if (moveTimer <= 0)
-			{
-				MoveEnemies();
-			}
-			if (shootTimer <= 0)
-			{
-				Shoot();
-			}
-			if (motherShipTimer <= 0)
-			{
-				SpawnMotherShip();
-			}
-			moveTimer -= Time.deltaTime;
-			shootTimer -= Time.deltaTime;
-			motherShipTimer -= Time.deltaTime;
-		}
+            if (transform.position.y <= START_Y)
+            {
+                entering = false;
+            }
+        }
+        else
+        {
+            if (GameManager.gameOver == false)
+            {
+                if (moveTimer <= 0)
+                {
+                    MoveEnemies();
+                }
 
-		
-	}
+                if (shootTimer <= 0)
+                {
+                    Shoot();
+                }
+
+                if (motherShipTimer <= 0)
+                {
+                    SpawnMotherShip();
+                }
+                moveTimer -= Time.deltaTime;
+                shootTimer -= Time.deltaTime;
+                motherShipTimer -= Time.deltaTime;
+            }
+        }
+    }
     private void MoveEnemies()
 	{
         int hitMax = 0;

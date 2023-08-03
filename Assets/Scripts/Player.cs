@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 	private Vector2 offScreenPos = new Vector2(0, -20f);
 	private Vector2 startPos = new Vector2(0, -6.5f);
 	private float dirx;
+	public GameManager gameManager;
 
 	private void Start()
 	{
@@ -123,26 +124,28 @@ public class Player : MonoBehaviour
 	}
 
     public void TakeDamage()
-	{
-		shipStats.currentHealth--;
-		UIManager.UpdateHealthBar(shipStats.currentHealth);
-		if (shipStats.currentHealth <= 0)
-		{
-			shipStats.currentLifes--;
-			UIManager.UpdateLives(shipStats.currentLifes);
-			if (shipStats.currentLifes <= 0)
-			{
-				//Debug.Log("Game Over");
-				AlienMaster.allAliens.Clear();
-				SceneManager.LoadScene("RestartScene");
+    {
+        shipStats.currentHealth--;
+        UIManager.UpdateHealthBar(shipStats.currentHealth);
 
-			}
-			else
-			{
-				//Debug.Log("Respawn");
-				StartCoroutine(Respawn());
-			}
-		}
-		
-	}
+        if (shipStats.currentHealth <= 0)
+        {
+            shipStats.currentLifes--;
+            UIManager.UpdateLives(shipStats.currentLifes);
+
+            if (shipStats.currentLifes <= 0)
+            {
+                Debug.Log("Game Over");
+				
+            AlienMaster.allAliens.Clear();
+                gameManager.GameOver();
+
+            }
+            else
+            {
+                StartCoroutine(Respawn());
+            }
+        }
+        
+    }
 }
